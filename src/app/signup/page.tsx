@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { log } from "console";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -20,7 +19,7 @@ export default function SignupPage() {
   const onSignup = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("api/users/signup", user);
+      const response = await axios.post("/api/users/signup", user);
       console.log("Signup success", response.data);
 
       router.push("/login");
